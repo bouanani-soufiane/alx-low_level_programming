@@ -1,26 +1,28 @@
 #include "main.h"
 
 /**
- * _strncpy - check the code
- * @dest: pointer destination
- * @src: pointer source
- * @n: variable
- * Return: void.
+ * _strncat - function that concatenates two strings
+ * @src: source string
+ * @dest: destination string
+ * @n: destination string
+ * Return: pointer to the resulting string dest
  */
-char *_strncpy(char *dest, char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i;
+	int j;
 
-	for (i = 0; i < n; i++)
+	for (i = 0; dest[i] != '\0'; i++)
 	{
-		dest[i] = src[i];
-		if (src[i] == '\0')
+		if (dest[i + 1] == '\0')
 		{
-			for (; i < n; i++)
+			for (j = 0; src[j] != '\0' && j < n; j++)
 			{
-				dest[i] = '\0';
+				dest[i + 1] = src[j];
+				i++;
 			}
 		}
 	}
+
 	return (dest);
 }

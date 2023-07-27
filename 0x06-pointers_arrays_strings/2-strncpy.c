@@ -1,19 +1,26 @@
 #include "main.h"
 
 /**
- * _strcmp - compares two strings.
- * @s1: first string
- * @s2: second string
- * Return: the number of comaparaison
+ * _strncpy - check the code
+ * @dest: pointer destination
+ * @src: pointer source
+ * @n: variable
+ * Return: void.
  */
-int _strcmp(char *s1, char *s2)
+char *_strncpy(char *dest, char *src, int n)
 {
 	int i;
 
-	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
+	for (i = 0; i < n; i++)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		dest[i] = src[i];
+		if (src[i] == '\0')
+		{
+			for (; i < n; i++)
+			{
+				dest[i] = '\0';
+			}
+		}
 	}
-	return (0);
+	return (dest);
 }
